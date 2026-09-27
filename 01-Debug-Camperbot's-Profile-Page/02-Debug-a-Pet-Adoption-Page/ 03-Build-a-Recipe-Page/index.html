@@ -1,1 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Classic Tiramisu</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600&display=swap');
 
+  :root{
+    --espresso: #2b1c16;
+    --cocoa: #4a3327;
+    --cream: #f7f0e4;
+    --mascarpone: #fffaf0;
+    --coffee-accent: #a9713f;
+    --rule: #dcd0bd;
+  }
+
+  *{ box-sizing: border-box; }
+
+  body{
+    margin:0;
+    background: var(--cream);
+    color: var(--espresso);
+    font-family: 'Source Sans 3', sans-serif;
+    line-height: 1.55;
+    padding-bottom: 4rem;
+  }
+
+  .wrap{
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 0;
+  }
+
+  header{
+    text-align: left;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .kicker{
+    font-size: 0.95rem;
+    color: var(--coffee-accent);
+    font-weight: 600;
+    margin: 0 0 0.5rem;
+  }
+
+  h1{
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: clamp(2.4rem, 6vw, 3.4rem);
+    line-height: 1.05;
+    margin: 0 0 0.9rem;
+    letter-spacing: -0.01em;
+  }
+
+  .lede{
+    font-size: 1.08rem;
+    max-width: 60ch;
+    color: var(--cocoa);
+    margin: 0;
+  }
+
+  .meta{
+    display: flex;
+    gap: 2rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .meta div{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .meta span:first-child{
+    font-size: 0.78rem;
+    color: var(--coffee-accent);
+    font-weight: 600;
+  }
+
+  .meta span:last-child{
+    font-family: 'Fraunces', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+  }
+
+  .hero-img{
+    width: 100%;
+    margin: 2rem 0 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-img img{
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 12px 28px rgba(43,28,22,0.25);
+  }
+
+  .layout{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  @media (min-width: 640px){
+    .layout{
+      grid-template-columns: 220px 1fr;
+    }
+  }
+
+  h2{
+    font-family: 'Fraunces', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 0 1.1rem;
+    color: var(--espresso);
+  }
+
+  .ingredients ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .ingredients li{
+    padding: 0.55rem 0;
+    border-bottom: 1px dashed var(--rule);
+    font-size: 0.97rem;
+  }
+
+  .ingredients li:last-child{ border-bottom: none; }
+
+  .amt{
+    color: var(--coffee-accent);
+    font-weight: 600;
+    margin-right: 0.35rem;
+  }
+
+  .steps ol{
+    list-style: none;
+    counter-reset: step;
+    margin: 0;
+    padding: 0;
+  }
+
+  .steps li{
+    counter-increment: step;
+    position: relative;
+    padding: 0 0 1.5rem 2.8rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .steps li:last-child{
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+
+  .steps li::before{
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: -0.15rem;
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--mascarpone);
+    background: var(--espresso);
+    width: 2.1rem;
+    height: 2.1rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .steps h3{
+    font-family: 'Fraunces', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 0.3rem;
+  }
+
+  .steps p{ margin: 0; color: var(--cocoa); }
+
+  .timer-tag{
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--coffee-accent);
+    background: rgba(169,113,63,0.12);
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+  }
+
+  .note{
+    margin-top: 3rem;
+    padding: 1.4rem 1.6rem;
+    background: var(--mascarpone);
+    border-left: 3px solid var(--coffee-accent);
+    font-size: 0.97rem;
+    color: var(--cocoa);
+  }
+
+  .note strong{ color: var(--espresso); }
+
+  footer{
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 0.85rem;
+    color: var(--coffee-accent);
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <p class="kicker">No-Bake Italian Dessert</p>
+    <h1>Classic Tiramisu</h1>
+    <p class="lede">Espresso-soaked ladyfingers layered with a rich, creamy mascarpone mixture and dusted with cocoa &mdash; smooth, coffee-kissed, and made to chill overnight.</p>
+    <div class="meta">
+      <div><span>Serves</span><span>8</span></div>
+      <div><span>Active time</span><span>35 min</span></div>
+      <div><span>Chill time</span><span>4&ndash;12 hrs</span></div>
+    </div>
+    <div class="hero-img">
+      <img src="data:image/jpeg;base64,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" alt="A slice of tiramisu on a plate, dusted with cocoa">
+    </div>
+  </header>
+
+  <div class="layout">
+    <section class="ingredients">
+      <h2>Ingredients</h2>
+      <ul>
+        <li><span class="amt">4</span>large egg yolks</li>
+        <li><span class="amt">1/2 cup</span>granulated sugar</li>
+        <li><span class="amt">16 oz</span>mascarpone cheese</li>
+        <li><span class="amt">1 cup</span>heavy cream</li>
+        <li><span class="amt">1 1/2 cups</span>strong brewed espresso, cooled</li>
+        <li><span class="amt">2 tbsp</span>coffee liqueur (optional)</li>
+        <li><span class="amt">24</span>ladyfinger cookies (savoiardi)</li>
+        <li><span class="amt">2 tbsp</span>unsweetened cocoa powder, for dusting</li>
+      </ul>
+    </section>
+
+    <section class="steps">
+      <h2>Instructions</h2>
+      <ol>
+        <li>
+          <h3>Whisk yolks and sugar</h3>
+          <p>In a heatproof bowl, whisk the egg yolks and sugar together until pale and thick.</p>
+        </li>
+        <li>
+          <h3>Cook the yolk mixture</h3>
+          <p>Set the bowl over a pot of simmering water and whisk constantly until thickened, about 5&ndash;8 minutes.</p>
+          <span class="timer-tag">7 min</span>
+        </li>
+        <li>
+          <h3>Cool, then fold in mascarpone</h3>
+          <p>Let the mixture cool to room temperature, then whisk in the mascarpone until smooth.</p>
+        </li>
+        <li>
+          <h3>Whip the cream</h3>
+          <p>Whip the heavy cream to stiff peaks in a separate bowl, then gently fold it into the mascarpone mixture.</p>
+        </li>
+        <li>
+          <h3>Dip and layer ladyfingers</h3>
+          <p>Combine the espresso and coffee liqueur. Quickly dip each ladyfinger (1&ndash;2 seconds per side, don&rsquo;t soak) and arrange a layer in a 9&times;13&Prime; dish.</p>
+        </li>
+        <li>
+          <h3>Layer and repeat</h3>
+          <p>Spread half the mascarpone mixture over the ladyfingers, add a second dipped layer, then top with the rest of the cream.</p>
+        </li>
+        <li>
+          <h3>Chill</h3>
+          <p>Cover and refrigerate at least 4 hours, ideally overnight, so the layers set.</p>
+          <span class="timer-tag">4+ hrs</span>
+        </li>
+        <li>
+          <h3>Dust and serve</h3>
+          <p>Just before serving, dust generously with cocoa powder. Slice and enjoy.</p>
+        </li>
+      </ol>
+    </section>
+  </div>
+
+  <div class="note">
+    <strong>Tip:</strong> For an alcohol-free version, skip the coffee liqueur and use a little extra espresso. Tiramisu tastes best the next day, once the ladyfingers have softened and the flavors have melded.
+  </div>
+
+  <footer>Buon appetito</footer>
+</div>
+</body>
+</html>
